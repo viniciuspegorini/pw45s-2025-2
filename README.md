@@ -66,16 +66,16 @@
 ## 1 - Seminário
 ### Escolha uma linguagem, plataforma e/ou framework para desenvolvimento Web (Java, PHP, Node.js, Perl, Ruby on Rails, .NET(C♯, VB), Python, etc.) ou Híbrido (Android, IOs):
 
-ADRIANA DANTAS MAROTTI - 
-ANA LUISA DARIVA RAMOS - Go
-ARTHUR CRISTIANO - Node.js
-DAVI AUGUSTO LIRA - Kotlin Multiplatform (KMP)
-EMANOEL MULLER MARCOMIN - Laravel
-ISACK ARAUJO COSTA - ASP.NET Core, C#
-JEFFERSON HENRIQUE DE ALBUQUERQUE - 
-JOAO VITOR DENGO - Quarkus
-LUCAS HENRIQUE BOTEZINI - Django
-THIAGO CAUN FRANKLIN MAGDALENA - 
+- ADRIANA DANTAS MAROTTI - 
+- ANA LUISA DARIVA RAMOS - Go
+- ARTHUR CRISTIANO - Node.js
+- DAVI AUGUSTO LIRA - Kotlin Multiplatform (KMP)
+- EMANOEL MULLER MARCOMIN - Laravel
+- ISACK ARAUJO COSTA - ASP.NET Core, C#
+- JEFFERSON HENRIQUE DE ALBUQUERQUE - 
+- JOAO VITOR DENGO - Quarkus
+- LUCAS HENRIQUE BOTEZINI - Django
+- THIAGO CAUN FRANKLIN MAGDALENA - 
 
 1. [Deverá ser entregue] Desenvolver uma apresentação (PPT, PDF ou Readme.MD no git) contendo uma breve apresentação do *framework*/biblioteca escolhida:
 - As vantagens e desvantagens da linguagem, *framework* e/ou plataforma. 
