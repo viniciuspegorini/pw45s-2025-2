@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -25,6 +26,7 @@ import java.util.List;
 
 @EnableWebSecurity
 @Configuration
+@EnableMethodSecurity(prePostEnabled = true)
 public class WebSecurity {
 
     private final AuthService authService;
@@ -60,6 +62,11 @@ public class WebSecurity {
                 .requestMatchers("/h2-console/**").permitAll()
                 .requestMatchers("/error/**").permitAll()
                 .requestMatchers("/actuator/**").permitAll()
+
+                .requestMatchers(HttpMethod.POST,"/categories/**").hasAnyRole("USER")
+                .requestMatchers(HttpMethod.POST,"/products/**").hasAnyRole("ADMIN")
+
+                .requestMatchers(HttpMethod.GET,"/products/**").hasAnyRole("ADMIN",  "USER")
 
                 .anyRequest().authenticated()
         );
