@@ -12,6 +12,7 @@ interface AuthContextType {
   authenticatedUser?: AuthenticatedUser;
   handleLogin: (authenticationResponse: AuthenticationResponse) => Promise<any>;
   handleLogout: () => void;
+  hasPermission: (permission: string) => boolean;
 }
 
 interface AuthProviderProps {
@@ -71,6 +72,14 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     setAuthenticatedUser(undefined);
   };
 
+  const hasPermission = (permission: string): boolean => {
+    if (!authenticatedUser?.authorities) {
+      return false;
+    }
+    return authenticatedUser?.authorities.some(
+              (authority) => authority.authority === permission
+            );
+  }
   return (
     <AuthContext.Provider
       value={{
@@ -78,6 +87,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         authenticatedUser,
         handleLogin,
         handleLogout,
+        hasPermission,
       }}
     >
       {children}

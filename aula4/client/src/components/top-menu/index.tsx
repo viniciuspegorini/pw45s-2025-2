@@ -13,7 +13,7 @@ const TopMenu: React.FC = () => {
   const [darkMode, setDarkMode] = useState<boolean>(() => {
     return localStorage.getItem("theme") === "dark";
   });
-  const { authenticated, handleLogout } = useAuth();
+  const { authenticated, handleLogout, hasPermission } = useAuth();
 
   useEffect(() => {
     const themeLink = document.getElementById("theme-link") as HTMLLinkElement;
@@ -63,7 +63,7 @@ const TopMenu: React.FC = () => {
             },
           ],
         },
-        { label: "Prod. Show", icon: "pi pi-search", command: () => navigate("/products/show") },
+        hasPermission("ROLE_ADMIN") ? { label: "Prod. Show", icon: "pi pi-search", command: () => navigate("/products/show") } : {},
       ]
     : [];
 

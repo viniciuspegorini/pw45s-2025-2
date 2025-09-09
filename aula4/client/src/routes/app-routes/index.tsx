@@ -12,6 +12,11 @@ import { NotFound } from "@/pages/not-found";
 import { ProductShow } from "@/pages/product-show";
 import { Unauthorized } from "@/pages/unauthorized";
 
+const ROLES = {
+  User: "ROLE_USER",
+  Admin: "ROLE_ADMIN",
+}
+
 export function AppRoutes() {
   return (
     <Routes>
@@ -21,7 +26,7 @@ export function AppRoutes() {
         <Route path="register" element={<RegisterPage />} />
 
         {/* protected routes - Roles: User and Admin */}
-        <Route element={<RequireAuth />}>
+        <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.User]} />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<HomePage />} />
 
@@ -39,8 +44,8 @@ export function AppRoutes() {
           <Route path="*" element={<NotFound />} />
         </Route>
 
-        {/* protected routes - Roles: User and Admin */}
-        <Route element={<RequireAuth />}>
+        {/* protected routes - Roles: Admin */}
+        <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
           <Route path="/products/show" element={<ProductShow />} />
         </Route>
       </Route>
