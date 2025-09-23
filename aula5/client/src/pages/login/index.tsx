@@ -136,6 +136,7 @@ export const LoginPage = () => {
           <div className="mb-3">
           <GoogleLogin
             locale="pt-BR"
+            shape="pill"
             onSuccess={onSuccess}
               onError={() => {
                 toast.current?.show({
