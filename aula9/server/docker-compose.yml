@@ -1,4 +1,4 @@
-# docker compose up -d --build
+version: "3.9"
 ########################### SERVICES
 services:
   ########################### MINIO
