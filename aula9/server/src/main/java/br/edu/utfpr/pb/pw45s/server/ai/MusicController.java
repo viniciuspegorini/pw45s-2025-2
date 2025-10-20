@@ -25,7 +25,9 @@ public class MusicController {
 
     // /music/parameters?theme={{theme}}&genre={{genre}}
     @GetMapping("/parameters")
-    public ResponseEntity<MusicDTO> generateMusicWithParams(@RequestParam("genre") String genre, @RequestParam("theme") String theme, @RequestParam(value = "ai", required = false) String ai) {
+    public ResponseEntity<MusicDTO> generateMusicWithParams(@RequestParam("genre") String genre,
+                                                            @RequestParam("theme") String theme,
+                                                            @RequestParam(value = "ai", required = false) String ai) {
         try {
             if (ai != null && ai.equalsIgnoreCase(AIProvider.DEEPSEEK.toString())) {
                 return ResponseEntity.ok(deepSeekMusicService.getMusicByGenreAndTheme(genre, theme));

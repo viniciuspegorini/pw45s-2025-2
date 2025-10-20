@@ -10,10 +10,9 @@ import java.util.*;
 @Service
 public class ChatGPTService {
     private final String API_URL = "https://api.openai.com/v1/chat/completions";
+
     @Value("${openai.api.key}")
     private String apiKey;
-
-
 
     public String ask(String userMessage) {
         RestTemplate restTemplate = new RestTemplate();
